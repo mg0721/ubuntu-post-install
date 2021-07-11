@@ -7,7 +7,14 @@ function replace_string {
 }
 
 function install_apt {
-    LIST='./asset/apt_packages'
+    LIST='./asset/packages.list'
+    for PACKAGE in $(cat $LIST); do
+        sudo apt install $PACKAGE
+    done
+}
+
+function install_fonts {
+    LIST='./asset/fonts.list'
     for PACKAGE in $(cat $LIST); do
         sudo apt install $PACKAGE
     done

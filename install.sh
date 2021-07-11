@@ -9,4 +9,5 @@ sudo apt update
 sudo apt upgrade
 
 install_apt
+install_fonts
 set_git
