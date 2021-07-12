@@ -1,9 +1,25 @@
+function backup {
+    old_fpath=$1
+    current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+    new_fpath=$old_fpath.$current_time
+    sudo cp $old_fpath $new_fpath
+}
+
 function replace_string {
     local fpath=$1
     local old=$2
     local new=$3
 
     sudo sed -i "s/$old/$new/g" $fpath
+}
+
+function header {
+    # Format header text
+    length=${#1}
+    padding=$(( (72 - length) / 2))
+    sep=$(printf '=%.0s' $(seq 1 $padding))
+    echo ""
+    echo -e "${FORE_GREEN}$sep $1 $sep${NC}"
 }
 
 function ask_yesno {
@@ -24,13 +40,6 @@ function ask_yesno {
     done
     echo $retval
 }
-
-FG_GREEN='\033[0;32m'
-FG_YELLOW='\033[1;33m'
-FG_BLACK='\033[30m'
-BG_RED='\033[41m'
-BG_GREEN='\033[42m'
-NC='\033[0m'
 
 function run {
     $@

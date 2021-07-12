@@ -9,6 +9,7 @@ function import_scripts {
 . SETTING
 import_scripts ./scripts/
 
+backup /etc/apt/sources.list
 replace_string /etc/apt/sources.list "archive.ubuntu.com" "mirror.kakao.com"
 replace_string /etc/apt/sources.list "security.ubuntu.com" "mirror.kakao.com"
 run sudo apt update

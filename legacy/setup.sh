@@ -20,14 +20,14 @@ GIT_ID="mgkim"
 ASSET_PATH=./asset
 SRC_PATH=./src
 
-function header() {
-    # Format header text
-    length=${#1}
-    padding=$(( (72 - length) / 2))
-    sep=$(printf '=%.0s' $(seq 1 $padding))
-    echo ""
-    echo -e "${FORE_GREEN}$sep $1 $sep${NC}"
-}
+# function header() {
+#     # Format header text
+#     length=${#1}
+#     padding=$(( (72 - length) / 2))
+#     sep=$(printf '=%.0s' $(seq 1 $padding))
+#     echo ""
+#     echo -e "${FORE_GREEN}$sep $1 $sep${NC}"
+# }
 
 # function ask() {
 #     # Ask for input. First parameter: Display text, 2nd parameter variable name
@@ -65,31 +65,31 @@ function header() {
 #     fi
 # }
 
-function mycmd() {
-    $@
-    if [ $? -eq 0 ]; then
-        echo -e "${FORE_YELLOW}Command: $@, OK${NC}"
-    else
-        echo -e "${FORE_YELLOW}Command: $@${NC}, ${BACK_RED}${FORE_BLACK}FAIL${NC}"
-        exit
-    fi
-}
+# function mycmd() {
+#     $@
+#     if [ $? -eq 0 ]; then
+#         echo -e "${FORE_YELLOW}Command: $@, OK${NC}"
+#     else
+#         echo -e "${FORE_YELLOW}Command: $@${NC}, ${BACK_RED}${FORE_BLACK}FAIL${NC}"
+#         exit
+#     fi
+# }
 
-function myapt() {
-    sudo apt -y $@
-    if [ $? -eq 0 ]; then
-        echo -e "${FORE_YELLOW}Command: sudo apt -y $@, OK${NC}"
-    else
-        echo -e "${FORE_YELLOW}Command: sudo apt -y $@${NC}, ${BACK_RED}${FORE_BLACK}FAIL${NC}"
-        exit
-    fi
-}
+# function myapt() {
+#     sudo apt -y $@
+#     if [ $? -eq 0 ]; then
+#         echo -e "${FORE_YELLOW}Command: sudo apt -y $@, OK${NC}"
+#     else
+#         echo -e "${FORE_YELLOW}Command: sudo apt -y $@${NC}, ${BACK_RED}${FORE_BLACK}FAIL${NC}"
+# #         exit
+# #     fi
+# }
 
-function install_fonts() {
-    header "FONTS INSTALL"
-    mycmd git clone git@github.com:powerline/fonts.git
-    mycmd_sudo cp ./fonts/UbuntuMono/*.ttf /usr/local/share/fonts/
-}
+# function install_fonts() {
+#     header "FONTS INSTALL"
+#     mycmd git clone git@github.com:powerline/fonts.git
+#     mycmd_sudo cp ./fonts/UbuntuMono/*.ttf /usr/local/share/fonts/
+# }
 
 function install_python() {
     header "PYTHON"
@@ -192,13 +192,13 @@ function ready() {
     myapt upgrade
 }
 
-function install_utils() {
-    header "UTILS"
-    myapt install dos2unix
-    myapt install unrar zip unzip
-    myapt install terminator dbus-x11 # For terminator GUI
-    mycmd sudo systemd-machine-id-setup
-}
+# function install_utils() {
+#     header "UTILS"
+#     myapt install dos2unix
+#     myapt install unrar zip unzip
+#     myapt install terminator dbus-x11 # For terminator GUI
+#     mycmd sudo systemd-machine-id-setup
+# }
 
 function install_kotlin() {
     header "KOTLIN"
