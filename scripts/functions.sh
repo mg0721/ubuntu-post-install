@@ -5,17 +5,3 @@ function replace_string {
 
     sudo sed -i "s/$old/$new/g" $fpath
 }
-
-function install_apt {
-    LIST='./asset/packages.list'
-    for PACKAGE in $(cat $LIST); do
-        sudo apt install $PACKAGE
-    done
-}
-
-function install_fonts {
-    LIST='./asset/fonts.list'
-    for PACKAGE in $(cat $LIST); do
-        sudo apt install $PACKAGE
-    done
-}
