@@ -1,12 +1,13 @@
-. SETTING
-
 function import_scripts {
     local path=$1
-    for SCRIPT in $path/*; do
+    for SCRIPT in $path/*;
+    do
         . $SCRIPT
     done
 }
 
+
+. SETTING
 import_scripts ./scripts/
 
 replace_string /etc/apt/sources.list "archive.ubuntu.com" "mirror.kakao.com"
