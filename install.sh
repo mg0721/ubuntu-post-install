@@ -6,15 +6,13 @@ function import_scripts {
     done
 }
 
-
 . SETTING
 import_scripts ./scripts/
 
 replace_string /etc/apt/sources.list "archive.ubuntu.com" "mirror.kakao.com"
 replace_string /etc/apt/sources.list "security.ubuntu.com" "mirror.kakao.com"
-
-sudo apt update
-sudo apt upgrade
+run sudo apt update
+run sudo apt upgrade
 
 install_packages
 install_fonts

@@ -1,7 +1,7 @@
 function install_apt {
     LIST=$1
     for PACKAGE in $(cat $LIST); do
-        sudo apt install -y $PACKAGE
+        run sudo apt install -y $PACKAGE
     done
 }
 

@@ -38,24 +38,24 @@ function header() {
 #     printf -v $2 "$inp"
 # }
 
-function ask_yesno() {
-    # Ask yes or no. First Param: Question, 2nd param: Default
-    # Returns True for yes, False for No
-    case $2 in
-        [Yy]* ) opts="[YES/no]" ;;
-        [Nn]* ) opts="[yes/NO]" ;;
-    esac
-    while true; do
-        read -rp $'\e[36m'"$1 $opts: "$'\e[97m' yn
-        yn="${yn:-${2}}"
-        case $yn in
-            [Yy]* ) retval=true ; break ;;
-            [Nn]* ) retval=false ; break ;;
-            * ) echo "Please answer yes or no." ;;
-        esac
-    done
-    echo $retval
-}
+# function ask_yesno() {
+#     # Ask yes or no. First Param: Question, 2nd param: Default
+#     # Returns True for yes, False for No
+#     case $2 in
+#         [Yy]* ) opts="[YES/no]" ;;
+#         [Nn]* ) opts="[yes/NO]" ;;
+#     esac
+#     while true; do
+#         read -rp $'\e[36m'"$1 $opts: "$'\e[97m' yn
+#         yn="${yn:-${2}}"
+#         case $yn in
+#             [Yy]* ) retval=true ; break ;;
+#             [Nn]* ) retval=false ; break ;;
+#             * ) echo "Please answer yes or no." ;;
+#         esac
+#     done
+#     echo $retval
+# }
 
 # function check_for_sudo() {
 #     # Ensure user isn't running as sudo/root. We don't want to screw up any system install
@@ -117,12 +117,12 @@ function install_adb() {
 
 function remove_cuda() {
     sudo apt-get -y --purge remove "*cublas*" "*cufft*" "*curand*" \
-                "*cusolver*" "*cusparse*" "*npp*" "*nvjpeg*" "cuda*" "nsight*" 
+                "*cusolver*" "*cusparse*" "*npp*" "*nvjpeg*" "cuda*" "nsight*"
     sudo apt-get -y --purge remove "*nvidia*"
     sudo apt-get -y autoremove
     sudo apt-get autoclean
 
-    # sudo apt-get remove --purge '^nvidia-.*' 
+    # sudo apt-get remove --purge '^nvidia-.*'
     # sudo apt-get remove --purge 'cuda*'
     # sudo apt-get autoremove --purge 'cuda*'
     # sudo rm -rf /usr/local/cuda
