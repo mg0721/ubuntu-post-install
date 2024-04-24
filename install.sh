@@ -34,10 +34,10 @@ function install {
 
     echo -e "Your OS : \033[32m$DISTRIB_DESCRIPTION\033[0m"
 
-    if [[ ${DISTRIB_CODENAME} = "bionic" || ${DISTRIB_CODENAME} = "focal" ]]; then
+    if [[ ${DISTRIB_CODENAME} = "bionic" || ${DISTRIB_CODENAME} = "focal" || ${DISTRIB_CODENAME} = "jammy" ]]; then
         :
     else
-        echo -e "${ERROR}FAIL, CHECK your OS Version. 18.04, 20.04 is supported only${END}"
+        echo -e "${ERROR}FAIL, CHECK your OS Version. 18.04, 20.04, 22.04 is supported only${END}"
         exit 0
     fi
 
