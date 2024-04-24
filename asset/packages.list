@@ -1,5 +1,4 @@
 git
-dos2unix
 
 unrar
 zip
@@ -12,7 +11,6 @@ ssh
 openssh-server
 net-tools
 vim
-meld
 build-essential
 
 terminator
